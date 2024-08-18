@@ -1,0 +1,17 @@
+Gender,ParentMaritalStatus,IsFirstChild,MathScore,ReadingScore,WritingScore
+female,divorced,first child,35,46,41
+male,divorced,first child,66,68,61
+male,married,first child,59,65,57
+female,married,first child,35,49,48
+female,single,first child,52,74,71
+male,single,first child,76,92,86
+female,widowed,first child,63,87,76
+male,widowed,first child,89,85,83
+female,divorced,not first child,72,88,86
+male,divorced,not first child,60,64,61
+male,married,not first child,68,71,70
+female,married,not first child,73,84,91
+female,single,not first child,42,46,50
+male,single,not first child,62,68,69
+female,widowed,not first child,66,93,94
+male,widowed,not first child,73,80,76

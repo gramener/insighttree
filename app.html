@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insight Tree App - Gramener</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.bootstrap5.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@gramex/insighttree@3/dist/insighttree.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet">
+  <style>
+    #data {
+      height: 15rem;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42126862-1"></script>
+  <script type="module">
+    /* global dataLayer */
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-42126862-1');
+  </script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href=".">Insight Tree</a>
+      <span class="navbar-brand">&raquo;</span>
+      <span class="navbar-brand">App</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode" title="Toggle Dark Mode">
+          <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (auto)">
+            <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><button class="dropdown-item" data-bs-theme-value="light"><i class="me-2 bi bi-sun-fill"></i> Light</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="dark"><i class="me-2 bi bi-moon-stars-fill"></i> Dark</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="auto"><i class="me-2 bi bi-circle-half"></i> Auto</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <ul class="page-tabs nav nav-pills my-5">
+      <li class="nav-item">
+        <a class="nav-link active d-flex align-items-center fs-5" href="#data" data-bs-toggle="tab" data-bs-target="#data-tab-pane">
+          <svg width="28" height="28" class="me-2">
+            <circle cx="50%" cy="50%" r="13" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            <text x="50%" y="50%" dy="0.37em" text-anchor="middle" fill="currentColor">1</text>
+          </svg>
+          <span>Upload Data</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center fs-5" href="#preview" data-bs-toggle="tab" data-bs-target="#preview-tab-pane">
+          <svg width="28" height="28" class="me-2">
+            <circle cx="50%" cy="50%" r="13" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            <text x="50%" y="50%" dy="0.37em" text-anchor="middle" fill="currentColor">2</text>
+          </svg>
+          <span>Preview</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="data-tab-pane" role="tabpanel" aria-labelledby="data-tab">
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <h2 class="h4">Copy & paste your data</h2>
+            <p>Select your data (with its header row) in Excel and paste it here.</p>
+            <h2 class="h4"><span class="text-danger">OR</span> Upload a .CSV file</h2>
+            <p><input type="file" accept=".csv, .tsv, .txt" class="form-control file-upload" id="file" placeholder="data.csv"></p>
+            <h2 class="h4"><span class="text-danger">OR</span> Pick a sample dataset</h2>
+            <p>
+              <select class="form-select file-select" name="file">
+                <option selected></option>
+                <option value="sales-data.csv">Sales data</option>
+                <option value="marks.csv">Marks data</option>
+              </select>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <textarea class="form-control font-monospace" id="data" rows="3" placeholder="Paste your Excel/CSV data here..." spellcheck="false" data-enable-grammarly="false"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-end">
+          <a href="#preview" class="btn btn-success">
+            Preview
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg>
+          </a>
+        </p>
+      </div>
+
+      <div class="tab-pane fade" id="preview-tab-pane" role="tabpanel" aria-labelledby="preview-tab">
+        <div id="no-data" class="alert alert-danger mb-5" role="alert">
+          No data! <a href="#data">Upload data first</a>
+        </div>
+        <div id="insight-tree-container" class="row d-none">
+          <form id="insight-tree-controls" class="col-md-6" tabindex="-1">
+            <div class="mb-3">
+              <label for="groups" class="form-label">Groups</label>
+              <select class="form-select" id="groups" name="groups" multiple></select>
+            </div>
+            <div class="mb-3">
+              <label for="metrics" class="form-label">Metrics</label>
+              <select class="form-select" id="metrics" name="metrics" multiple></select>
+            </div>
+            <div class="mb-3">
+              <label for="impact" class="form-label">Impact metric</label>
+              <select class="form-select" id="impact" name="impact"></select>
+            </div>
+            <div class="mb-3 form-check">
+              <input class="form-check-input" type="checkbox" value="" id="impact-descending" name="impact-descending">
+              <label class="form-check-label" for="impact-descending">Find lowest Impact metric (not highest)</label>
+            </div>
+            <div class="mb-3">
+              <label for="sortby" class="form-label">Sort by</label>
+              <select class="form-select" id="sortby" name="sortby"></select>
+            </div>
+            <div class="mb-3 form-check">
+              <input class="form-check-input" type="checkbox" value="" id="sortby-descending" name="sortby-descending">
+              <label class="form-check-label" for="sortby-descending">Sort descending</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input class="form-check-input" type="checkbox" value="" id="show-deep-insights" name="show-deep-insights" checked>
+              <label class="form-check-label" for="show-deep-insights">Step through deep insights (lowest level in tree)</label>
+            </div>
+          </form>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="slider" class="form-label">Move slider to step through highest ranked insights</label>
+              <input id="slider" class="form-range" type="range" min="1" max="50" value="4" />
+            </div>
+            <div class="insight-tree table-responsive"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2"></script>
+  <script type="module" src="insight-tree-app.js"></script>
+</body>
+
+</html>
